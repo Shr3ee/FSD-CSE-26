@@ -11,7 +11,16 @@
 // 10.set and map
 // 11.class component
 var a=20;
-const b=30;
+var b=30;
 b=a++;
 console.log("a=",a);
 console.log("b=",b);
+function sum(a=0,b=0){
+    return (a+b);
+}
+//arrowfunction
+const sum1=(a,b)=>a+b;
+console.log("sum=",sum(12));
+console.log("sum=",sum(12,34));
+console.log("sum=",sum());
+console.log("sum1=",sum1(12,34));
