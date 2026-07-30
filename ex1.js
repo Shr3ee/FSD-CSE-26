@@ -10,6 +10,7 @@
 // 9.fetch
 // 10.set and map
 // 11.class component
+// 12.import and export
 var a=20;
 var b=30;
 b=a++;
