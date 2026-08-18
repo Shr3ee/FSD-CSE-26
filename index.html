@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        table,th,td{
+            border: 2px solid black;
+            margin: auto;
+        }
+        th,td{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1><center>List of Products</center></h1>
+    <table>
+        <thead>
+            <th>Sr.no</th>
+            <th>Title</th>
+            <th>Image</th>
+            <th>Category</th>
+            <th>Rating</th>
+            <th>Price (USD)</th>
+            <th>Price (INR)</th>
+            <th>Stock</th>
+            <th>Action</th>
+        </thead>
+        <tbody id="data"></tbody>
+        </tbody>
+    </table>
+    <script>
+        async function getProducts(){
+            const URL= "https://dummyjson.com/products";
+            const exchangeURL = "https://api.frankfurter.dev/v2/rate/USD/INR"
+            try{
+                const res=await fetch(URL);
+                console.log("res=",res);
+                const data=await res.json();
+                const exchangeRes = await fetch(exchangeURL);
+                console.log("Rate=",exchangeRes);
+                const exchangeData = await exchangeRes.json();
+                console.log("data=",data.products);
+                const rate = exchangeData.rate;
+                let rows="";
+                data.products.map((i,index)=>{
+                    const priceINR = i.price * rate;
+                    rows+=`
+                        <tr>
+                            <td>${index+1}</td>
+                            <td>${i.title}</td>
+                            <td><img src="${i.images[0]}" width="50" height="50"/></td>
+                            <td>${i.category}</td>
+                            <td>${i.rating}</td>
+                            <td>${i.price}</td>
+                            <td>₹${priceINR.toFixed(2)}</td>
+                            <td>${i.stock}</td>
+                            <td><button>Add to Cart</button></td>
+                        </tr>
+                        `
+            })
+                const el=document.getElementById("data");
+                el.innerHTML=rows;
+            }
+            catch(err){
+                console.log("Error",err);
+            }}
+            getProducts()
+    </script>
+    
+</body>
+</html>
