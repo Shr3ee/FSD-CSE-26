@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #1f2937;
+}
+
+.quiz-card {
+    width: min(100%, 650px);
+    padding: 36px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.eyebrow {
+    margin-bottom: 8px;
+    color: #667eea;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1 {
+    margin-bottom: 28px;
+    font-size: 32px;
+    color: #111827;
+}
+
+.progress-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.progress-track {
+    height: 10px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    background: #e5e7eb;
+    border-radius: 20px;
+}
+
+.progress-bar {
+    width: 25%;
+    height: 100%;
+    background: #667eea;
+    border-radius: inherit;
+    transition: width 0.3s ease;
+}
+
+.question-box {
+    padding: 26px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+}
+
+.question-box h2 {
+    margin-bottom: 22px;
+    font-size: 22px;
+    line-height: 1.4;
+}
+
+
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+#options .option {
+    min-height: 70px;
+    padding: 16px;
+    border: 2px solid #667eea;
+    border-radius: 4px;
+    background: #ffffff;
+    text-align: center;
+    cursor: pointer;
+}
+
+#options .option:hover,
+#options .option.selected {
+    background: #667eea;
+    color: #ffffff;
+}
+
+@media (max-width: 520px) {
+    #options {
+        grid-template-columns: 1fr;
+    }
+}

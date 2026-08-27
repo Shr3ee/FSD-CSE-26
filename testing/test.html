@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Test</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <main class="quiz-card" aria-labelledby="quiz-title">
+        <p class="eyebrow">Knowledge check</p>
+        <h1 id="quiz-title">Quick Test</h1>
+        <div class="progress-row">
+            <span id="question-number">Question 1 of 4</span>
+            <span id="progress-percent">25%</span>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <section class="question-box">
+            <h2 id="question-text"></h2>
+            <div id="options" class="options" role="radiogroup" aria-label="Answer options"></div>
+        </section>
+
+        <div class="navigation">
+            <button id="previous-button" class="button secondary" type="button">Previous</button>
+            <button id="next-button" class="button primary" type="button">Next</button>
+        </div>
+    </main>
+
+    <script src="./test.js"></script>
+</body>
+</html>
